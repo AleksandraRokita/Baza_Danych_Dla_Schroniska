@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProjektC.Models.Uzytkownik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Właściciel</h1>
+
+<p>
+    <a asp-action="Create" class="button-link">Stwórz nowego właściciela!</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id właściciela
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUzytkownika)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="button-link" asp-route-id="@item.IdUzytkownika">Edytuj</a> 
+                    <a asp-action="Details" class="button-link" asp-route-id="@item.IdUzytkownika">Szczegóły</a> 
+                    <a asp-action="Delete" class="button-link" asp-route-id="@item.IdUzytkownika">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

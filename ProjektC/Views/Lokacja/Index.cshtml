@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjektC.Models.Lokacja>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lokacja</h1>
+
+<p>
+    <a asp-action="Create" class="button-link">Stwórz nową lokację.</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id Lokacji</th>
+            <th>
+                Lokacja
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdLokacji)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lokacja1)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="button-link" asp-route-id="@item.IdLokacji">Edytuj</a> 
+                    <a asp-action="Details" class="button-link" asp-route-id="@item.IdLokacji">Szczegóły</a> 
+                    <a asp-action="Delete" class="button-link" asp-route-id="@item.IdLokacji">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

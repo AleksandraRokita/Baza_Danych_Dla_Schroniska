@@ -1,0 +1,52 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+a.button-link {
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+    a.button-link:hover {
+        background-color: #e68900; 
+    }
+
+/* Styl dla przycisków */
+button, input[type="submit"], input[type="button"] {
+    background-color: #ff9800 !important; /* Pomarañczowy */
+    color: white !important; /* Bia³y tekst */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    /* Zmiana koloru po najechaniu */
+    button:hover, input[type="submit"]:hover {
+        background-color: #e68900 !important; /* Ciemniejszy pomarañczowy */
+    }

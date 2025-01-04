@@ -1,0 +1,29 @@
+﻿@model ProjektC.Models.Lokacja
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuń lokację</h1>
+
+<h3>Czy jesteś pewny?</h3>
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Lokcja
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Lokacja1)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdLokacji" />
+        <h5></h5>
+        <input type="submit" value="Usuń" class="btn btn-danger" /> 
+        <h5></h5>
+        <a asp-action="Index" class="button-link">Powrót</a>
+    </form>
+</div>
