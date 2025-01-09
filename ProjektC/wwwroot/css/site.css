@@ -50,3 +50,7 @@ button, input[type="submit"], input[type="button"] {
     button:hover, input[type="submit"]:hover {
         background-color: #e68900 !important; /* Ciemniejszy pomarañczowy */
     }
+
+.center-text {
+    text-align: center;
+}

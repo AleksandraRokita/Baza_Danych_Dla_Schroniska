@@ -38,13 +38,13 @@ public partial class Adopcja
 
     [ForeignKey("IdPracownika")]
     [InverseProperty("Adopcjas")]
-    public virtual Pracownik IdPracownikaNavigation { get; set; } = null!;
+    public virtual Pracownik? IdPracownikaNavigation { get; set; } = null!;
 
     [ForeignKey("IdUzytkownika")]
     [InverseProperty("Adopcjas")]
-    public virtual Uzytkownik IdUzytkownikaNavigation { get; set; } = null!;
+    public virtual Uzytkownik? IdUzytkownikaNavigation { get; set; } = null!;
 
     [ForeignKey("IdZwierzecia")]
     [InverseProperty("Adopcjas")]
-    public virtual Zwierze IdZwierzeciaNavigation { get; set; } = null!;
+    public virtual Zwierze? IdZwierzeciaNavigation { get; set; } = null!;
 }
