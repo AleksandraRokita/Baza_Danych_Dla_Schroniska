@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -46,7 +47,7 @@ namespace ProjektC.Controllers
 
             return View(adopcja);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Adopcjas/Create
         public IActionResult Create()
         {
@@ -74,7 +75,7 @@ namespace ProjektC.Controllers
             ViewData["IdZwierzecia"] = new SelectList(_context.Zwierze, "IdZwierzecia", "IdZwierzecia", adopcja.IdZwierzecia);
             return View(adopcja);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Adopcjas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -131,7 +132,7 @@ namespace ProjektC.Controllers
             ViewData["IdZwierzecia"] = new SelectList(_context.Zwierze, "IdZwierzecia", "IdZwierzecia", adopcja.IdZwierzecia);
             return View(adopcja);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Adopcjas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

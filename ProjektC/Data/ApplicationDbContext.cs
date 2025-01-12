@@ -10,10 +10,22 @@ namespace ProjektC.Data
             : base(options)
         {
         }
-        public DbSet<ProjektC.Models.Zwierze> Zwierze { get; set; } = default!;
-        public DbSet<ProjektC.Models.Adopcja> Adopcja { get; set; } = default!;
-        public DbSet<ProjektC.Models.Lokacja> Lokacja { get; set; } = default!;
-        public DbSet<ProjektC.Models.Pracownik> Pracownik { get; set; } = default!;
-        public DbSet<ProjektC.Models.Uzytkownik> Uzytkownik { get; set; } = default!;
+
+        public DbSet<Zwierze> Zwierze { get; set; } = default!;
+        public DbSet<Adopcja> Adopcja { get; set; } = default!;
+        public DbSet<Lokacja> Lokacja { get; set; } = default!;
+        public DbSet<Pracownik> Pracownik { get; set; } = default!;
+        public DbSet<Uzytkownik> Uzytkownik { get; set; } = default!;
+
+       
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            int result = await base.SaveChangesAsync(cancellationToken);
+
+            await Database.ExecuteSqlRawAsync("EXEC AktualizujStatusAdopcji", cancellationToken);
+
+            return result;
+        }
     }
 }

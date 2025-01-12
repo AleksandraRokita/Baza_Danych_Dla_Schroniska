@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Stwórz nową adopcję</h1>
 
 <h4>Adopcja</h4>
 <hr />
@@ -13,41 +13,42 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdZwierzecia" class="control-label"></label>
+                <label asp-for="IdZwierzecia" class="control-label">Id Zwierzęcia</label>
                 <select asp-for="IdZwierzecia" class ="form-control" asp-items="ViewBag.IdZwierzecia"></select>
             </div>
             <div class="form-group">
                 <label asp-for="IdUzytkownika" class="control-label"></label>
-                <select asp-for="IdUzytkownika" class ="form-control" asp-items="ViewBag.IdUzytkownika"></select>
+                <select asp-for="IdUzytkownika" class ="form-control" asp-items="ViewBag.IdUzytkownika">Id Właściciela</select>
             </div>
             <div class="form-group">
                 <label asp-for="IdPracownika" class="control-label"></label>
-                <select asp-for="IdPracownika" class ="form-control" asp-items="ViewBag.IdPracownika"></select>
+                <select asp-for="IdPracownika" class ="form-control" asp-items="ViewBag.IdPracownika">Id Pracownika</select>
             </div>
+            @* <div class="form-group"> *@
+            @*     <label asp-for="StatusAdopcji" class="control-label"></label> *@
+            @*     <input asp-for="StatusAdopcji" class="form-control" /> *@
+            @*     <span asp-validation-for="StatusAdopcji" class="text-danger"></span> *@
+            @* </div> *@
             <div class="form-group">
-                <label asp-for="StatusAdopcji" class="control-label"></label>
-                <input asp-for="StatusAdopcji" class="form-control" />
-                <span asp-validation-for="StatusAdopcji" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataRozpoczeciaAdopcji" class="control-label"></label>
+                <label asp-for="DataRozpoczeciaAdopcji" class="control-label">Data Rozpoczęcia Adopcji</label>
                 <input asp-for="DataRozpoczeciaAdopcji" class="form-control" />
                 <span asp-validation-for="DataRozpoczeciaAdopcji" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DataZakonczeniaAdopcji" class="control-label"></label>
+                <label asp-for="DataZakonczeniaAdopcji" class="control-label">Data Zakończenia Adopcji</label>
                 <input asp-for="DataZakonczeniaAdopcji" class="form-control" />
                 <span asp-validation-for="DataZakonczeniaAdopcji" class="text-danger"></span>
             </div>
+            <h5></h5>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Stwórz" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
+<h5></h5>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="button-link">Powrót</a>
 </div>
 
 @section Scripts {

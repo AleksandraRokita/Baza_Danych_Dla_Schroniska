@@ -71,6 +71,7 @@ namespace ProjektC.Controllers
         }
 
         // GET: Zwierze/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -122,7 +123,7 @@ namespace ProjektC.Controllers
             ViewData["IdLokacji"] = new SelectList(_context.Set<Lokacja>(), "IdLokacji", "IdLokacji", zwierze.IdLokacji);
             return View(zwierze);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Zwierze/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

@@ -54,3 +54,6 @@ button, input[type="submit"], input[type="button"] {
 .center-text {
     text-align: center;
 }
+stopka {
+    background-color: #ff9800 !important; /* Pomarañczowy */
+}

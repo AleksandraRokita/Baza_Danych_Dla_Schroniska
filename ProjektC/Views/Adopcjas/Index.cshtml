@@ -4,31 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Adopcje</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="button-link">Dodaj adopcję</a>
+
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.StatusAdopcji)
+                Status adopcji
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataRozpoczeciaAdopcji)
+                Data rozpoczęcia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataZakonczeniaAdopcji)
+                Data zakończenia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdPracownikaNavigation)
+                Id Pracownika
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdUzytkownikaNavigation)
+                Id Właściciela
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdZwierzeciaNavigation)
+                Id Zwierzęcia
             </th>
             <th></th>
         </tr>
@@ -55,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.IdZwierzeciaNavigation.IdZwierzecia)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAdopcji">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAdopcji">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAdopcji">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdAdopcji" class="button-link">Edytuj</a> 
+                    <a asp-action="Details" asp-route-id="@item.IdAdopcji" class="button-link">Szczegóły</a> 
+                    <a asp-action="Delete" asp-route-id="@item.IdAdopcji" class="button-link">Usuń</a>
             </td>
         </tr>
 }

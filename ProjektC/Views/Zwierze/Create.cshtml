@@ -38,13 +38,13 @@
                 <span asp-validation-for="Waga" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdLokacji" class="control-label"></label>
+                <label asp-for="IdLokacji" class="control-label">Id lokacji</label>
                 <select asp-for="IdLokacji" class ="form-control" asp-items="ViewBag.IdLokacji"></select>
             </div>
             <h5>
             </h5>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Stwórz" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -55,7 +55,7 @@
 
       <h5> 
       </h5>
-    <a asp-action="Index" class="button-link">Back to List</a>
+    <a asp-action="Index" class="button-link">Powrót</a>
 </div>
 
 @section Scripts {

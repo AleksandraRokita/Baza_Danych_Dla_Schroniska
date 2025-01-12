@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjektC.Data;
@@ -42,7 +43,7 @@ namespace ProjektC.Controllers
 
             return View(pracownik);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Pracowniks/Create
         public IActionResult Create()
         {
@@ -64,7 +65,7 @@ namespace ProjektC.Controllers
             }
             return View(pracownik);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Pracowniks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -115,7 +116,7 @@ namespace ProjektC.Controllers
             }
             return View(pracownik);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Pracowniks/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
