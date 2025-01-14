@@ -9,9 +9,18 @@
 <p>
     <a asp-action="Create" class="button-link">Stwórz nowe zwierze</a>
 </p>
+
+<form method="get" asp-action="Index">
+    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" placeholder="Wyszukaj..." />
+    <button type="submit">Szukaj</button>
+</form>
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                Id Zwierzecia
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Gatunek)
             </th>
@@ -34,32 +43,36 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gatunek)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rasa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Wiek)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Waga)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdLokacjiNavigation.IdLokacji)
-            </td>
-            <td>
-                    <a asp-action="Edit" class="button-link" asp-route-id="@item.IdZwierzecia">Edytuj</a> 
-                    <a asp-action="Details" class="button-link" asp-route-id="@item.IdZwierzecia">Szczegóły</a> 
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdZwierzecia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gatunek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rasa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wiek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Waga)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdLokacjiNavigation.IdLokacji)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="button-link" asp-route-id="@item.IdZwierzecia">Edytuj</a>
+                    <a asp-action="Details" class="button-link" asp-route-id="@item.IdZwierzecia">Szczegóły</a>
                     <a asp-action="Delete" class="button-link" asp-route-id="@item.IdZwierzecia">Usuń</a>
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

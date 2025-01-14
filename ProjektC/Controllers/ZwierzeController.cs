@@ -19,6 +19,27 @@ namespace ProjektC.Controllers
         {
             _context = context;
         }
+        [HttpGet]
+        public async Task<IActionResult> Index(string searchString)
+        {
+            ViewData["CurrentFilter"] = searchString;
+
+            var applicationDbContext = _context.Zwierze
+                .Include(z => z.IdLokacjiNavigation) // Najpierw Include()
+                .AsQueryable(); // Konwersja na IQueryable przed filtrowaniem
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                applicationDbContext = applicationDbContext.Where(z =>
+                    z.IdZwierzecia.ToString().Contains(searchString) ||  // Konwersja int -> string
+                    z.Gatunek.Contains(searchString) ||
+                    z.Imie.Contains(searchString) ||
+                    z.Rasa.Contains(searchString));
+            }
+
+            return View(await applicationDbContext.ToListAsync());
+        }
+
 
         // GET: Zwierze
         public async Task<IActionResult> Index()
