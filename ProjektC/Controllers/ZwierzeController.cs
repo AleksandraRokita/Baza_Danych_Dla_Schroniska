@@ -25,13 +25,13 @@ namespace ProjektC.Controllers
             ViewData["CurrentFilter"] = searchString;
 
             var applicationDbContext = _context.Zwierze
-                .Include(z => z.IdLokacjiNavigation) // Najpierw Include()
-                .AsQueryable(); // Konwersja na IQueryable przed filtrowaniem
+                .Include(z => z.IdLokacjiNavigation) 
+                .AsQueryable(); 
 
             if (!string.IsNullOrEmpty(searchString))
             {
                 applicationDbContext = applicationDbContext.Where(z =>
-                    z.IdZwierzecia.ToString().Contains(searchString) ||  // Konwersja int -> string
+                    z.IdZwierzecia.ToString().Contains(searchString) ||  
                     z.Gatunek.Contains(searchString) ||
                     z.Imie.Contains(searchString) ||
                     z.Rasa.Contains(searchString));
